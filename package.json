@@ -1,0 +1,42 @@
+{
+  "name": "imageConverter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Snipsx17/imageConverter.git",
+  "author": "Snipsx17 <ing.uberthhernandez@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:frontend": "yarn workspace @image-converter/frontend dev",
+    "dev:backend": "yarn workspace @image-converter/backend start:dev",
+    "build": "yarn workspace @image-converter/shared build && yarn workspace @image-converter/backend build && yarn workspace @image-converter/frontend build",
+    "build:frontend": "yarn workspace @image-converter/frontend build",
+    "build:backend": "yarn workspace @image-converter/backend build",
+    "build:shared": "yarn workspace @image-converter/shared build",
+    "start": "concurrently \"yarn workspace @image-converter/frontend start\" \"yarn workspace @image-converter/backend start:prod\"",
+    "start:frontend": "yarn workspace @image-converter/frontend start",
+    "start:backend": "yarn workspace @image-converter/backend start:prod",
+    "lint": "yarn workspaces run lint",
+    "test": "yarn workspaces run test",
+    "clean": "yarn workspaces run clean && rm -rf node_modules",
+    "install:all": "yarn install",
+    "type-check": "yarn workspaces run type-check",
+    "type-check:frontend": "yarn workspace @image-converter/frontend type-check",
+    "type-check:backend": "yarn workspace @image-converter/backend type-check",
+    "type-check:shared": "yarn workspace @image-converter/shared type-check",
+    "add:frontend": "yarn workspace @image-converter/frontend add",
+    "add:backend": "yarn workspace @image-converter/backend add",
+    "add:shared": "yarn workspace @image-converter/shared add"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.10",
+    "concurrently": "^9.2.0",
+    "eslint": "^9.30.1",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3"
+  }
+}
