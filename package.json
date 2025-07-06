@@ -24,7 +24,7 @@
     "test": "yarn workspaces run test",
     "clean": "yarn workspaces run clean && rm -rf node_modules",
     "install:all": "yarn install",
-    "type-check": "yarn workspaces run type-check",
+    "type-check": "yarn workspace @image-converter/shared type-check && yarn workspace @image-converter/backend type-check && yarn workspace @image-converter/frontend type-check",
     "type-check:frontend": "yarn workspace @image-converter/frontend type-check",
     "type-check:backend": "yarn workspace @image-converter/backend type-check",
     "type-check:shared": "yarn workspace @image-converter/shared type-check",
